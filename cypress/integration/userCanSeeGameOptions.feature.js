@@ -15,6 +15,6 @@ describe("When user visit mainpage", () => {
 
   it("user can see current scores", () => {
     cy.get("[data-cy='user-score']").contains(0);
-    cy.get("[data-cy='computer-score]").contains(0);
+    cy.get("[data-cy='computer-score']").contains(0);
   });
 });
