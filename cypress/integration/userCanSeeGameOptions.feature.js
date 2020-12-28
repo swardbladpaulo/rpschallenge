@@ -8,9 +8,9 @@ describe("When user visit mainpage", () => {
   });
 
   it("user can see a game play options", () => {
-    cy.get("[data-cy='rock']").contains("rock");
-    cy.get("[data-cy='paper']").contains("paper");
-    cy.get("[data-cy='scissors']").contains("scissors");
+    cy.get("[data-cy='rock']").contains("Rock");
+    cy.get("[data-cy='paper']").contains("Paper");
+    cy.get("[data-cy='scissors']").contains("Scissors");
   });
 
   it("user can see current scores", () => {
