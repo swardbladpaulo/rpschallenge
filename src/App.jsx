@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Header, Button, Label } from "semantic-ui-react";
-import { computersChoice } from './GameLogic';
+import { computersChoice, gameResults } from './GameLogic';
 
 const App = () => {
   const [userSelection, setUserSelection] = useState()
   const [computerSelection, setComputersChoice] = useState()
   const [resultMessage, setResultMessage] = useState()
 
-  const onHandleSelect=(e) => {
+  const onHandleSelect = async (e) => {
     setUserSelection(e)
     let randomSelection = computersChoice()
-    debugger
     setComputersChoice(randomSelection)
+    let results= await gameResults(e, randomSelection)
+    setResultMessage(results)
   }
   
   return (
@@ -56,15 +57,16 @@ const App = () => {
             Rock
           </Button>
           <Button.Or />
-          <Button data-cy="paper" color="yellow" onClick={() => setUserSelection('paper')}>
+          <Button data-cy="paper" color="yellow" onClick={(e) => onHandleSelect('paper')}>
             Paper
           </Button>
           <Button.Or />
-          <Button data-cy="scissors" color="blue" onClick={() => setUserSelection('scissors')}>
+          <Button data-cy="scissors" color="blue" onClick={(e) => onHandleSelect('scissors')}>
             Scissors
           </Button>
         </Button.Group>
       </div>
+      {resultMessage}
     </>
   );
 };
