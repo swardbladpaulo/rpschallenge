@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { Header, Button, Label } from "semantic-ui-react";
+import { computersChoice } from './GameLogic';
 
 const App = () => {
   const [userSelection, setUserSelection] = useState()
-  /*const onHandleSelect(selection)  {
-  setUserSelection(selection)
-  }*/
-  
+  const [computerSelection, setComputersChoice] = useState()
+  const [resultMessage, setResultMessage] = useState()
 
+  const onHandleSelect=(e) => {
+    setUserSelection(e)
+    let randomSelection = computersChoice()
+    debugger
+    setComputersChoice(randomSelection)
+  }
+  
   return (
     <>
       <Header
@@ -33,14 +39,20 @@ const App = () => {
       </div>
 
       {userSelection && 
-      <Label data-cy='selection' size="big">
-        {userSelection}
-      </Label>
+      <>
+        <Label data-cy='selection' size="big">
+          {userSelection}
+        </Label>
+        
+        <Label data-cy='computer-selection' size="big">
+          {computerSelection}
+        </Label>
+      </>
       }
-      
+
       <div className="button-group">
         <Button.Group size="large">
-          <Button data-cy="rock" color="red" onClick={() => setUserSelection('rock')}>
+          <Button data-cy="rock" color="red" value="rock" onClick={(e) => onHandleSelect('rock')}>
             Rock
           </Button>
           <Button.Or />
