@@ -12,28 +12,84 @@ code {
     monospace;
 }
 .button-group {
-  padding-top: 400px;
+  padding-top: 100px;
   text-align: center;
 }
 
 .score-group {
-  padding-top: 100px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  text-align: center;
+  background-color: yellow;
+}
+
+#user-score {
+  padding: 30px 90px;
+  background: pink;
+  color: red;
+  font-size: x-large;
+}
+
+#computer-score {
+  padding: 30px 50px;
+  background: orange;
+  color: black;
+  font-size: x-large;
+}
+
+.selection {
+  padding-top: 20px;
+  padding-bottom: 25px;
+  background-color: tomato;  
+}
+
+.user-selection {
+  flex: 1;
+  padding-bottom: 25px;
+  background: turquoise;
+  color: orange;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: left;
+}
+
+#user-selection {
+  text-align: center;
+  padding: 40px 80px 40px 80px;
+  font-size: x-large;
+  font-weight: bolder;
+  background: coral;
+}
+
+.computer-selection {
+  flex: 1;
+  background: crimson;
+  color: blue;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+#computer-selection {
+  padding: 40px 80px 40px 80px;
+  background: palegreen;
+  color: darkmagenta;
+  font-size: x-large;
+  font-weight: bold;
   text-align: center;
 }
 
 .result-message {
   text-align: center;
   font-size: xx-large;
-  padding: 100px;
+  font-weight: bolder;
+  padding: 40px;
 }
 
-.selection {
-  text-align: center;
-  flex-direction: row;
-  flex: 1;
-  
-}
-
-.computer-selection {
-  
+@media only screen and (max-width: 855px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
 }

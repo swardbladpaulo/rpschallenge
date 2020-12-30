@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header, Button, Label, Container, Image } from "semantic-ui-react";
+import { Header, Button, Label, Container, Card } from "semantic-ui-react";
 import { computersChoice, gameResults } from "./GameLogic";
 import rock from "./images/rock.svg";
 import paper from "./images/paper.svg";
@@ -29,8 +29,6 @@ const App = () => {
         score = computerScore;
         setComputerScore(score + 1);
         break;
-      default:
-        break;
     }
   };
 
@@ -43,41 +41,44 @@ const App = () => {
         textAlign="center"
         color="green"
         inverted
-      >
-        Rock Paper Scissors
+        >Rock Paper Scissors
+        <Button onClick={(e) => (setUserScore(0), setComputerScore(0), setUserSelection(""), setComputersChoice(""), setResultMessage(""))}>
+          Reset game
+        </Button>
       </Header>
 
       <div className="score-group">
-        <Label data-cy="user-score" color="pink" size="huge">
+        <h2 style={{fontWeight:"bold", fontSize:50}}>SCORE</h2>
+        <Label data-cy="user-score" id="user-score">
           User
           <Label.Detail>{userScore}</Label.Detail>
         </Label>
-        <Label data-cy="computer-score" color="orange" size="huge">
+        <Label data-cy="computer-score" id="computer-score">
           Computer
           <Label.Detail>{computerScore}</Label.Detail>
         </Label>
       </div>
 
       {userSelection && (
-        <div className="selection">
-          <Container>
-            <Label data-cy="selection" size="big">
+        < div className="selection">
+          <Container className="user-selection">
+          <h2>YOUR CHOICE</h2>
+            <Label data-cy="user-selection" id="user-selection">
               {userSelection}
             </Label>
           </Container>
-
-          <Container className="computer-selection">
-            <Label data-cy="computer-selection" size="big">
+        
+          <Card className="computer-selection">
+            <h2>COMPUTERS CHOICE</h2>
+            <Label data-cy="computer-selection" id="computer-selection">
               {computerSelection}
             </Label>
-          </Container>
-        </div>
+          </Card>
+          </div>
       )}
-      <Button onClick={(e) => (setUserScore(0), setComputerScore(0), setUserSelection(""), setComputersChoice(""), setResultMessage(""))}>
-        Reset game
-      </Button>
+
       <div className="button-group">
-        <Button.Group size="large">
+        <Button.Group>
           <Button
             data-cy="rock"
             color="red"
@@ -104,6 +105,7 @@ const App = () => {
           </Button>
         </Button.Group>
       </div>
+
       <div data-cy="game-response" className="result-message">
         {resultMessage}
       </div>
