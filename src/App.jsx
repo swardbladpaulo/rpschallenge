@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { Header, Button, Label } from "semantic-ui-react";
+import { Header, Button, Label, Container, Image } from "semantic-ui-react";
 import { computersChoice, gameResults } from "./GameLogic";
+import rock from "./images/rock.svg";
+import paper from "./images/paper.svg";
+import scissors from "./images/scissors.svg";
 
 const App = () => {
   const [userSelection, setUserSelection] = useState();
@@ -26,7 +29,6 @@ const App = () => {
         score = computerScore;
         setComputerScore(score + 1);
         break;
-
       default:
         break;
     }
@@ -58,16 +60,22 @@ const App = () => {
 
       {userSelection && (
         <div className="selection">
-          <Label data-cy="selection" size="big">
-            {userSelection}
-          </Label>
+          <Container>
+            <Label data-cy="selection" size="big">
+              {userSelection}
+            </Label>
+          </Container>
 
-          <Label data-cy="computer-selection" size="big">
-            {computerSelection}
-          </Label>
+          <Container className="computer-selection">
+            <Label data-cy="computer-selection" size="big">
+              {computerSelection}
+            </Label>
+          </Container>
         </div>
       )}
-      <Button onClick={(e) =>( setUserScore(0), setComputerScore(0))}>Reset game</Button>
+      <Button onClick={(e) => (setUserScore(0), setComputerScore(0), setUserSelection(""), setComputersChoice(""), setResultMessage(""))}>
+        Reset game
+      </Button>
       <div className="button-group">
         <Button.Group size="large">
           <Button

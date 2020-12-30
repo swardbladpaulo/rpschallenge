@@ -29,5 +29,11 @@ code {
 
 .selection {
   text-align: center;
-  padding: 50px;
+  flex-direction: row;
+  flex: 1;
+  
+}
+
+.computer-selection {
+  
 }
