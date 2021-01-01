@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { Header, Button, Label, Container, Card } from "semantic-ui-react";
+import { Header, Button, Label, Grid } from "semantic-ui-react";
 import { computersChoice, gameResults } from "./GameLogic";
-import rock from "./images/rock.svg";
-import paper from "./images/paper.svg";
-import scissors from "./images/scissors.svg";
 
 const App = () => {
   const [userSelection, setUserSelection] = useState();
@@ -35,20 +32,21 @@ const App = () => {
   return (
     <>
       <Header
+        id="header"
         data-cy="header"
         as="h2"
         block
         textAlign="center"
-        color="green"
+        color="white"
         inverted
-        >Rock Paper Scissors
-        <Button onClick={(e) => (setUserScore(0), setComputerScore(0), setUserSelection(""), setComputersChoice(""), setResultMessage(""))}>
-          Reset game
-        </Button>
+      >
+        Rock Paper Scissors
       </Header>
 
       <div className="score-group">
-        <h2 style={{fontWeight:"bold", fontSize:50}}>SCORE</h2>
+        <h2 style={{ fontWeight: "bold", fontSize: 50, color: "white" }}>
+          SCORE
+        </h2>
         <Label data-cy="user-score" id="user-score">
           User
           <Label.Detail>{userScore}</Label.Detail>
@@ -60,35 +58,37 @@ const App = () => {
       </div>
 
       {userSelection && (
-        < div className="selection">
-          <Container className="user-selection">
-          <h2>YOUR CHOICE</h2>
-            <Label data-cy="user-selection" id="user-selection">
-              {userSelection}
-            </Label>
-          </Container>
-        
-          <Card className="computer-selection">
-            <h2>COMPUTERS CHOICE</h2>
-            <Label data-cy="computer-selection" id="computer-selection">
-              {computerSelection}
-            </Label>
-          </Card>
-          </div>
+        <div className="selection">
+          <Grid columns={2} padded>
+            <div className="user-selection">
+              <h2>YOUR CHOICE</h2>
+              <Grid.Column data-cy="user-selection" id="user-selection">
+                {userSelection}
+              </Grid.Column>
+            </div>
+            <div className="computer-selection">
+              <h2>COMPUTERS CHOICE</h2>
+              <Grid.Column data-cy="computer-selection" id="computer-selection">
+                {computerSelection}
+              </Grid.Column>
+            </div>
+          </Grid>
+        </div>
       )}
 
       <div className="button-group">
-        <Button.Group>
+        <Button.Group id="button-group">
           <Button
+            id="button-id-rock"
             data-cy="rock"
             color="red"
-            value="rock"
             onClick={(e) => onHandleSelect("rock")}
           >
             Rock
           </Button>
           <Button.Or />
           <Button
+            id="button-id-paper"
             data-cy="paper"
             color="yellow"
             onClick={(e) => onHandleSelect("paper")}
@@ -97,6 +97,7 @@ const App = () => {
           </Button>
           <Button.Or />
           <Button
+            id="button-id-scissors"
             data-cy="scissors"
             color="blue"
             onClick={(e) => onHandleSelect("scissors")}
@@ -107,7 +108,21 @@ const App = () => {
       </div>
 
       <div data-cy="game-response" className="result-message">
-        {resultMessage}
+        {resultMessage} <br /><br /><br />
+        {userSelection && (
+          <Button
+            id="reset-game-button"
+            onClick={(e) => (
+              setUserScore(0),
+              setComputerScore(0),
+              setUserSelection(""),
+              setComputersChoice(""),
+              setResultMessage("")
+            )}
+          >
+            Reset game
+          </Button>
+        )}
       </div>
     </>
   );

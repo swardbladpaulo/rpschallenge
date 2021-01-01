@@ -11,63 +11,93 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .button-group {
-  padding-top: 100px;
+  padding-top: 60px;
   text-align: center;
+}
+
+#button-group {
+  height: 100px;
+  width: 500px;
+}
+
+#button-id-rock {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#button-id-paper {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#button-id-scissors {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#reset-game-button {
+  background: red;
+  color: white;
+  font-size: large;
+  margin-left: 10px;
 }
 
 .score-group {
   padding-top: 40px;
   padding-bottom: 50px;
   text-align: center;
-  background-color: yellow;
 }
 
 #user-score {
   padding: 30px 90px;
-  background: pink;
   color: red;
   font-size: x-large;
 }
 
 #computer-score {
   padding: 30px 50px;
-  background: orange;
   color: black;
   font-size: x-large;
 }
 
 .selection {
-  padding-top: 20px;
-  padding-bottom: 25px;
-  background-color: tomato;  
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 .user-selection {
   flex: 1;
-  padding-bottom: 25px;
+  margin-left: 50px;
   background: turquoise;
-  color: orange;
-  font-size: x-large;
+  color: black;
+  font-size: large;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
+  padding-bottom: 25px;
+  padding-top: 10px;
 }
 
 #user-selection {
   text-align: center;
-  padding: 40px 80px 40px 80px;
+  padding: 40px 80px 40px 80px; 
   font-size: x-large;
+  color: pink;
   font-weight: bolder;
   background: coral;
 }
 
 .computer-selection {
   flex: 1;
+  margin-right: 50px;
   background: crimson;
   color: blue;
-  font-size: x-large;
+  font-size: large;
   font-weight: bold;
   text-align: center;
+  padding-bottom: 25px;
+  padding-top: 10px;
 }
 
 #computer-selection {
@@ -84,12 +114,13 @@ code {
   font-size: xx-large;
   font-weight: bolder;
   padding: 40px;
+  color: white;
 }
 
-@media only screen and (max-width: 855px) {
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 0;
-  }
+#video-background {
+  object-fit: cover;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  z-index: -1;
 }
