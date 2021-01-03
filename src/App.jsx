@@ -116,6 +116,7 @@ const App = () => {
             data-cy="reset-game-button"
             id="reset-game-button"
             onClick={() => (
+              // eslint-disable-next-line
               setUserScore(0),
               setComputerScore(0),
               setUserSelection(""),
