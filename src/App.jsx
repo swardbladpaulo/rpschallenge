@@ -111,8 +111,9 @@ const App = () => {
         {resultMessage} <br /><br /><br />
         {userSelection && (
           <Button
+            data-cy="reset-game-button"
             id="reset-game-button"
-            onClick={(e) => (
+            onClick={() => (
               setUserScore(0),
               setComputerScore(0),
               setUserSelection(""),

@@ -70,8 +70,8 @@ code {
 .user-selection {
   flex: 1;
   margin-left: 50px;
-  background: turquoise;
-  color: black;
+  /*background: turquoise;*/
+  color: rgb(255, 255, 255);
   font-size: large;
   font-weight: bold;
   text-align: center;
@@ -83,7 +83,7 @@ code {
   text-align: center;
   padding: 40px 80px 40px 80px; 
   font-size: x-large;
-  color: pink;
+  color: white;
   font-weight: bolder;
   background: coral;
 }
@@ -91,8 +91,8 @@ code {
 .computer-selection {
   flex: 1;
   margin-right: 50px;
-  background: crimson;
-  color: blue;
+  /*background: crimson;*/
+  color: rgb(71, 247, 94);
   font-size: large;
   font-weight: bold;
   text-align: center;
