@@ -26,6 +26,8 @@ const App = () => {
         score = computerScore;
         setComputerScore(score + 1);
         break;
+      
+      //no default
     }
   };
 
